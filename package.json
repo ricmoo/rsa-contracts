@@ -1,0 +1,25 @@
+{
+  "author": "Richard Moore <me@ricmoo.com>",
+  "description": "Solidity contract library for RSA verification.",
+  "devDependencies": {
+    "ethers": "^6.14.3",
+    "solc": "^0.8.30"
+  },
+  "license": "MIT",
+  "keywords": [
+    "solidity", "library", "rsa", "verify"
+  ],
+  "main": "index.js",
+  "name": "rsa-contracts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ricmoo/rsa-contracts.git"
+  },
+  "scripts": {
+    "build-test-rsa": "npx solcjs --optimize --bin --abi contracts/test-rsa.sol -o build",
+    "test": "npm run build-test-rsa && node test.mjs"
+  },
+
+  "sideEffects": false,
+  "version": "0.0.1"
+}

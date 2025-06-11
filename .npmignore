@@ -1,0 +1,14 @@
+
+# Test files
+build/**
+generate-tests/**
+tests.json
+test.mjs
+
+# Development
+.github/**
+*.tgz
+
+# Local Environment
+.iterm2-project
+obsolete/**

@@ -1,0 +1,5 @@
+# Files created by OpenSSL invocations
+data.txt
+privkey.pem
+pubkey.pem
+signature.bin
