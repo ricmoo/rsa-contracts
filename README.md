@@ -1,6 +1,8 @@
 Solidity RSA Library
 ====================
 
+[![CI Tests](https://github.com/ricmoo/rsa-contracts/actions/workflows/test.yml/badge.svg)](https://github.com/ricmoo/rsa-contracts/actions/workflows/test.yml)
+
 Simple RSA verification library for Solidity contracts.
 
 
