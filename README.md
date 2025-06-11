@@ -1,7 +1,9 @@
 Solidity RSA Library
 ====================
 
+[![NPM Version](https://img.shields.io/npm/v/rsa-contracts)](https://www.npmjs.com/package/rsa-contracts?activeTab=readme)
 [![CI Tests](https://github.com/ricmoo/rsa-contracts/actions/workflows/test.yml/badge.svg)](https://github.com/ricmoo/rsa-contracts/actions/workflows/test.yml)
+
 
 Simple RSA verification library for Solidity contracts.
 
