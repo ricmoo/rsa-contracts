@@ -3,3 +3,5 @@
 obsoelte/**
 
 build/**
+
+node_modules/**
