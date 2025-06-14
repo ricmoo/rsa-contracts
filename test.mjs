@@ -2,8 +2,11 @@ import { readFileSync } from "node:fs";
 
 import { ethers } from "ethers";
 
+import { compile, splitBytes32 } from "./utils.mjs";
+
+
 // Load the contract and tests
-const { abi, bytecode } = loadContract("contracts_test-rsa_sol_TestRSA")
+const { abi, bytecode } = compile("TestRSA")
 const tests = JSON.parse(readFileSync("./testcases.json").toString());
 
 
@@ -36,9 +39,9 @@ const tests = JSON.parse(readFileSync("./testcases.json").toString());
     for (const test of tests) {
 
         // Get the testcase info and format it for the contract
-        const mod = splitBigBytes(test.modulus);
+        const mod = splitBytes32(test.modulus);
         const exp = test.exponent;
-        const sig = splitBigBytes(test.signature);
+        const sig = splitBytes32(test.signature);
 
         // Run the contract call (and estimate gas)
         let result;
@@ -89,13 +92,13 @@ const tests = JSON.parse(readFileSync("./testcases.json").toString());
     for (const test of tests) {
 
         // Get the testcase info and format it for the contract
-        const mod = splitBigBytes(test.modulus);
+        const mod = splitBytes32(test.modulus);
         const exp = test.exponent;
 
         // Twiddle a single bit within the signature
         const _sig = ethers.getBytes("0x" + test.signature);
         _sig[100] ^= 0x02;
-        const sig = splitBigBytes(ethers.hexlify(_sig).substring(2));
+        const sig = splitBytes32(ethers.hexlify(_sig).substring(2));
 
         // Run the contract call
         let result;
@@ -142,21 +145,3 @@ const tests = JSON.parse(readFileSync("./testcases.json").toString());
     console.log(error);
     process.exit(1);
 });
-
-
-function loadContract(name) {
-    const abi = JSON.parse(readFileSync(`./build/${ name }.abi`).toString());
-    const bytecode = readFileSync(`./build/${ name }.bin`).toString();
-    return { abi, bytecode };
-}
-
-function splitBigBytes(value) {
-    if (value.startsWith("0x")) { value = value.substring(2); }
-
-    const result = [ ];
-    for (let i = 0; i < value.length; i += 64) {
-        result.push("0x" + value.substring(i, i + 64));
-    }
-
-    return result;
-}
