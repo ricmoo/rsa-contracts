@@ -4,7 +4,16 @@ pragma solidity ^0.8.30;
 
 import "./rsa.sol";
 
+
+/*
+ *  A quick demo of my RSA library for recovering hashes from standard
+ *  RSA signed data.
+ *
+ *  See: https://blog.ricmoo.com/ethereum-and-rsa-ae86218300a3
+ */
+
 contract TestRSA {
+
     function recoverHashRSA1024(bytes32[4] memory modulus, uint exponent,
       bytes32[4] memory signature) external view
       returns (bool success, bytes32 hash) {
