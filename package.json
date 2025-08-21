@@ -23,5 +23,5 @@
     "test": "npm run build-test-rsa && node test.mjs"
   },
   "sideEffects": false,
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
