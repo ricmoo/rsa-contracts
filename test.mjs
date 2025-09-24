@@ -2,9 +2,9 @@ import { readFileSync } from "node:fs";
 
 import { ethers } from "ethers";
 
-import { loadJson, splitBytes32, readContract } from "./utils.mjs";
+import { loadJson, splitBytes32, loadContract } from "./utils.mjs";
 
-const { abi, bytecode } = readContract("testrsa");
+const { abi, bytecode } = loadContract("testrsa");
 const tests = loadJson("./testcases.json");
 
 

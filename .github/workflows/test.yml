@@ -10,6 +10,7 @@ on:
       - "package-lock.json"
       - "testcases.json"
       - "tests.mjs"
+      - "utils.mjs"
 
 jobs:
 

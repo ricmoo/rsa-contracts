@@ -16,6 +16,6 @@ export function loadJson(filename) {
     return JSON.parse(readFileSync(filename));
 }
 
-export function readContract(name) {
+export function loadContract(name) {
     return loadJson(`./build/${ name }.json`);
 }
