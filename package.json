@@ -3,7 +3,7 @@
   "description": "Solidity contract library for RSA verification.",
   "devDependencies": {
     "ethers": "^6.14.3",
-    "solc": "^0.8.30"
+    "soler": "^0.0.2"
   },
   "license": "MIT",
   "keywords": [
@@ -19,7 +19,7 @@
     "url": "git+ssh://git@github.com/ricmoo/rsa-contracts.git"
   },
   "scripts": {
-    "build-test-rsa": "npx solcjs --optimize --bin --abi contracts/test-rsa.sol -o build",
+    "build-test-rsa": "soler contracts/test-rsa.sol TestRSA",
     "test": "npm run build-test-rsa && node test.mjs"
   },
   "sideEffects": false,

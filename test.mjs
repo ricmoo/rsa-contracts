@@ -2,12 +2,10 @@ import { readFileSync } from "node:fs";
 
 import { ethers } from "ethers";
 
-import { compile, splitBytes32 } from "./utils.mjs";
+import { loadJson, splitBytes32, readContract } from "./utils.mjs";
 
-
-// Load the contract and tests
-const { abi, bytecode } = compile("TestRSA")
-const tests = JSON.parse(readFileSync("./testcases.json").toString());
+const { abi, bytecode } = readContract("testrsa");
+const tests = loadJson("./testcases.json");
 
 
 (async function() {
