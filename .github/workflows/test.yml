@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - "contracts/**"
+      - "package.json"
+      - "package-lock.json"
       - "testcases.json"
       - "tests.mjs"
 
